@@ -7,8 +7,8 @@ public enum TipoDeDocumento {
 	
 	private String descricao;
 
-	TipoDeDocumento (String string) {
-		this.descricao = string;
+	TipoDeDocumento (String descricao) {
+		this.descricao = descricao;
 	}
 
 	public String getDescricao() {

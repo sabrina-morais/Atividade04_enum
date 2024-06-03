@@ -15,11 +15,13 @@ public class Contratacao {
 	
 	
 	public Contratacao(Date parse, Cargo cargo, Funcionario funcionario, Projeto projeto) {
-		this.dataI = dataI;
+		this.dataI = parse;
 		this.cargo = cargo;
 		this.status = Status.PENDENTE;
 		this.funcionario = funcionario;
 		this.projeto = projeto;
+		projeto.adicionarContratacao(this);
+		
 	}
 
 
@@ -61,8 +63,6 @@ public class Contratacao {
 	public void demitir() {
 		if(this.status == Status.CONTRATADO)
 			this.status = Status.DEMITIDO;
+			projeto.removerContratacao(this);
 		}
-
-
-
 }

@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Objects;
+
 import entities.enums.TipoDeDocumento;
 
 public class Funcionario {
@@ -30,6 +32,26 @@ public class Funcionario {
 	}
 	public void setDocumento(TipoDeDocumento documento) {
 		this.documento = documento;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(documento, nome, numeroDocumento);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Funcionario other = (Funcionario) obj;
+		return documento == other.documento && Objects.equals(nome, other.nome)
+				&& Objects.equals(numeroDocumento, other.numeroDocumento);
+	}
+	@Override
+	public String toString() {
+		return "Funcionario [nome=" + nome + ", numeroDocumento=" + numeroDocumento + ", documento=" + documento + "]";
 	}
 	
 	
